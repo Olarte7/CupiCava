@@ -136,7 +136,7 @@ public class CupiCava
     	// TODO Parte2 PuntoM: Implemente el método según la documentación dada.
     	for (int i = 0; i < vinos.size() - 1; i++) {
     		for (int j = 0; 0 < vinos.size() - i - 1; j++) {
-    			if (vinos.get(j).darAnhoElaboracion() > vinos.get(j + 1).darAnhoElaboracion()) {
+    			if (vinos.get(j).darAnhoElaboracion() < vinos.get(j + 1).darAnhoElaboracion()) {
     				Vino temp = vinos.get(j);
     				vinos.set(j, vinos.get(j + 1));
     				vinos.set(j + 1, temp);
@@ -152,7 +152,13 @@ public class CupiCava
      */
     public void ordenarVinosPorPresentacion()
     {
-    	
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		for (int j = 0; 0 < vinos.size() - i - 1; j++) {
+    			if (vinos.get(j).darPresentacion().compareToIgnoreCase(vinos.get(j + 1).darPresentacion()) > 0) {
+    				
+    			}
+    		}
+    	}
     }
     
     /**

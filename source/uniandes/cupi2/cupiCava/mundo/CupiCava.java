@@ -155,7 +155,9 @@ public class CupiCava
     	for (int i = 0; i < vinos.size() - 1; i++) {
     		for (int j = 0; 0 < vinos.size() - i - 1; j++) {
     			if (vinos.get(j).darPresentacion().compareToIgnoreCase(vinos.get(j + 1).darPresentacion()) > 0) {
-    				
+    				Vino temp = vinos.get(j);
+    				vinos.set(j, vinos.get(j + 1));
+    				vinos.set(j + 1, temp);
     			}
     		}
     	}
@@ -168,7 +170,15 @@ public class CupiCava
      */
     public void ordenarVinosPorContenidoAzucar()
     {
-    	
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		for (int j = 0; 0 < vinos.size() - i - 1; j++) {
+    			if (vinos.get(j).darContenidoAzucar() < vinos.get(j + 1).darContenidoAzucar()) {
+    				Vino temp = vinos.get(j);
+    				vinos.set(j, vinos.get(j + 1));
+    				vinos.set(j + 1, temp);
+    			}
+    		}       
+    	}
     }
     
     /**

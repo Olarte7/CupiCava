@@ -153,7 +153,7 @@ public class CupiCava
     public void ordenarVinosPorPresentacion()
     {
     	for (int i = 0; i < vinos.size() - 1; i++) {
-    		for (int j = 0; 0 < vinos.size() - i - 1; j++) {
+    		for (int j = 0; j < vinos.size() - i - 1; j++) {
     			if (vinos.get(j).darPresentacion().compareToIgnoreCase(vinos.get(j + 1).darPresentacion()) > 0) {
     				Vino temp = vinos.get(j);
     				vinos.set(j, vinos.get(j + 1));
@@ -172,7 +172,7 @@ public class CupiCava
     {
     	for (int i = 0; i < vinos.size() - 1; i++) {
     		for (int j = 0; 0 < vinos.size() - i - 1; j++) {
-    			if (vinos.get(j).darContenidoAzucar() < vinos.get(j + 1).darContenidoAzucar()) {
+    			if (vinos.get(j).darContenidoAzucar() > vinos.get(j + 1).darContenidoAzucar()) {
     				Vino temp = vinos.get(j);
     				vinos.set(j, vinos.get(j + 1));
     				vinos.set(j + 1, temp);
@@ -182,13 +182,21 @@ public class CupiCava
     }
     
     /**
-     * Ordena los vinos descendentemente por su tipo. <br>
+     * Ordena los vinos ascendentemente por su tipo. <br>
      * <b>pre:</b> La lista de vinos está inicializada. <br>
-     * <b>post:</b> La lista de vinos está ordenada por tipo (descendente)
+     * <b>post:</b> La lista de vinos está ordenada por tipo (ascendente)
      */
     public void ordenarVinosPorTipo()
     {
-    	
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		for (int j = 0; j < vinos.size() - i - 1; j++) {
+    			if (vinos.get(j).darTipo().compareToIgnoreCase(vinos.get(j + 1).darTipo()) > 0) {
+    				Vino temp = vinos.get(j);
+    				vinos.set(j, vinos.get(j + 1));
+    				vinos.set(j + 1, temp);
+    			}
+    		}
+    	}
     }
     
     /**
@@ -198,7 +206,15 @@ public class CupiCava
      */
     public void ordenarVinosPorColor()
     {
-    	
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		for (int j = 0; j < vinos.size() - i - 1; j++) {
+    			if (vinos.get(j).darColor().compareToIgnoreCase(vinos.get(j + 1).darColor()) > 0) {
+    				Vino temp = vinos.get(j);
+    				vinos.set(j, vinos.get(j + 1));
+    				vinos.set(j + 1, temp);
+    			}
+    		}
+    	}
     }
 
     /**

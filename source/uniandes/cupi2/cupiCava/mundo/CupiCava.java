@@ -77,7 +77,107 @@ public class CupiCava
 
         return buscado;
     }
+    /**
+     * Agrega un nuevo vino a la cava si no existe actualmente un vino en la cava con el mismo nombre.<br>
+     * <b>pre:</b> La lista de vinos está inicializada.<br>
+     * <b>post:</b> Se agregó un nuevo vino a la lista de vinos.<br>
+     * @param pNombre Nombre del vino. pNombre != null && pNombre != "".
+     * @param pPresentacion Presentación del vino. pPresentacion != null && pPresentacion != "" && (pPresentacion == BOTELLA || pPresentacion == BARRIL).
+     * @param pAnhoElaboracion Año de elaboración del vino. pAnhoElaboracion > 0.
+     * @param pContenidoAzucar Contenido en azúcar del vino. pContenidoAzucar >= 0
+     * @param pTipo Tipo de vino de acuerdo a su contenido en azúcar. pTipo != null && pTipo != "" && (pTipo == SECO || pTipo == ABOCADO || pTipo == SEMI_SECO || pTipo ==
+     *        SEMI_DULCE || pTipo == DULCE).
+     * @param pColor Color del vino. pColor != null && pColor != "" && (pColor == TINTO || pColor == ROSADO || pColor == BLANCO).
+     * @param pLugarOrigen Lugar de origen del vino. lugarElaboracion != null y lugarElaboracion != "".
+     * @param pImagen Imagen del vino. pImagen != null && pImagen != "".
+     * @return True si el vino es agregado, false de lo contrario.
+     */
+    public boolean agregarVino( String pNombre, String pPresentacion, int pAnhoElaboracion, double pContenidoAzucar, String pTipo, String pColor, String pLugarOrigen, String pImagen )
+    {
+    	Vino buscado = buscarVino( pNombre );
+    	boolean agregada = false;
+    	
+    	if( buscado == null )
+    	{
+    		Vino vino = new Vino( pNombre, pPresentacion, pAnhoElaboracion, pContenidoAzucar, pTipo, pColor, pLugarOrigen, pImagen );
+    		vinos.add( vino );
+    		agregada = true;
+    	}
+    	
+    	return agregada;
+    }
 
+    /**
+     * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por nombre (orden ascendente).
+     */
+    public void ordenarVinosPorNombre( )
+    {
+    	// TODO Parte2 PuntoL: Implemente el método según la documentación dada.
+    }
+    
+    /**
+     * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por año de elaboración (orden descendente).
+     */
+    public void ordenarVinosPorAnhoElaboracion( )
+    {
+    	// TODO Parte2 PuntoM: Implemente el método según la documentación dada.
+    }
+    
+    /**
+     * Ordena los vinos ascendentemente por su presentacion de botella o barril. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por presentación botella o barril (ascendene)
+     */
+    public void ordenarVinosPorPresentacion()
+    {
+    	
+    }
+    
+    /**
+     * Ordena los vinos ascendentemente por su contenido de azucar. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por contenido de azucar (ascendente)
+     */
+    public void ordenarVinosPorContenidoAzucar()
+    {
+    	
+    }
+    
+    /**
+     * Ordena los vinos descendentemente por su tipo. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por tipo (descendente)
+     */
+    public void ordenarVinosPorTipo()
+    {
+    	
+    }
+    
+    /**
+     * Ordena los vinos ascendentemente por su color. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por su color (ascendente)
+     */
+    public void ordenarVinosPorColor()
+    {
+    	
+    }
+
+    /**
+     * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.<br>
+     * <b> post: </b>La lista de vinos está ordenada por lugar de origen (orden ascendente).
+     */
+    public void ordenarVinosPorLugarOrigen( )
+    {
+    	// TODO Parte2 PuntoN: Implemente el método según la documentación dada.
+    }
+    
+    
     /**
      * Busca un vino utilizando una búsqueda binaria. <br>
      * <b>pre: </b> La lista de vinos está inicializada y se encuentra ordenada por nombre.
@@ -121,74 +221,27 @@ public class CupiCava
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
-   }
-
-    /**
-     * Agrega un nuevo vino a la cava si no existe actualmente un vino en la cava con el mismo nombre.<br>
-     * <b>pre:</b> La lista de vinos está inicializada.<br>
-     * <b>post:</b> Se agregó un nuevo vino a la lista de vinos.<br>
-     * @param pNombre Nombre del vino. pNombre != null && pNombre != "".
-     * @param pPresentacion Presentación del vino. pPresentacion != null && pPresentacion != "" && (pPresentacion == BOTELLA || pPresentacion == BARRIL).
-     * @param pAnhoElaboracion Año de elaboración del vino. pAnhoElaboracion > 0.
-     * @param pContenidoAzucar Contenido en azúcar del vino. pContenidoAzucar >= 0
-     * @param pTipo Tipo de vino de acuerdo a su contenido en azúcar. pTipo != null && pTipo != "" && (pTipo == SECO || pTipo == ABOCADO || pTipo == SEMI_SECO || pTipo ==
-     *        SEMI_DULCE || pTipo == DULCE).
-     * @param pColor Color del vino. pColor != null && pColor != "" && (pColor == TINTO || pColor == ROSADO || pColor == BLANCO).
-     * @param pLugarOrigen Lugar de origen del vino. lugarElaboracion != null y lugarElaboracion != "".
-     * @param pImagen Imagen del vino. pImagen != null && pImagen != "".
-     * @return True si el vino es agregado, false de lo contrario.
-     */
-    public boolean agregarVino( String pNombre, String pPresentacion, int pAnhoElaboracion, double pContenidoAzucar, String pTipo, String pColor, String pLugarOrigen, String pImagen )
-    {
-        Vino buscado = buscarVino( pNombre );
-        boolean agregada = false;
-
-        if( buscado == null )
-        {
-            Vino vino = new Vino( pNombre, pPresentacion, pAnhoElaboracion, pContenidoAzucar, pTipo, pColor, pLugarOrigen, pImagen );
-            vinos.add( vino );
-            agregada = true;
-        }
-
-        return agregada;
     }
 
-    /**
-     * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
-     * <b>pre:</b> La lista de vinos está inicializada. <br>
-     * <b>post:</b> La lista de vinos está ordenada por nombre (orden ascendente).
-     */
-    public void ordenarVinosPorNombre( )
-    {
-   	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
-   }
 
-    /**
-     * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
-     * <b>pre:</b> La lista de vinos está inicializada. <br>
-     * <b>post:</b> La lista de vinos está ordenada por año de elaboración (orden descendente).
-     */
-    public void ordenarVinosPorAnhoElaboracion( )
-    {
-   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
-   }
-
-    /**
-     * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
-     * <b>pre:</b> La lista de vinos está inicializada.<br>
-     * <b> post: </b>La lista de vinos está ordenada por lugar de origen (orden ascendente).
-     */
-    public void ordenarVinosPorLugarOrigen( )
-    {
-   	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
-   }
+    
+    
 
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
 
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
+    private void verificarInvariante()
+    {
+    	
+    }
 
+    private boolean buscarVinosConNombreRepetido()
+    {
+    	
+    }
+    
     // -----------------------------------------------------------------
     // Puntos de Extensión
     // -----------------------------------------------------------------

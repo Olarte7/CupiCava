@@ -39,6 +39,7 @@ public class CupiCava
     public CupiCava( )
     {
         vinos = new ArrayList<Vino>( );
+        verificarInvariante();
     }
 
     // -------------------------------------------------------------
@@ -323,6 +324,15 @@ public class CupiCava
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
+        ArrayList<Vino> resultado = new ArrayList<>();
+
+        for (Vino v : vinos) {
+            if (v.darTipo().equalsIgnoreCase(pTipo)) {
+                resultado.add(v);
+            }
+        }
+
+        return resultado;
     }
 
 
@@ -336,13 +346,22 @@ public class CupiCava
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
     private void verificarInvariante()
     {
-    	
+    	assert !buscarVinosConNombreRepetido() : "Hay vinos con nombres repetidos";
     }
 
     private boolean buscarVinosConNombreRepetido()
     {
-    	
+    	 for (int i = 0; i < vinos.size(); i++) {
+    	        String nombreActual = vinos.get(i).darNombre().toLowerCase();
+    	        for (int j = i + 1; j < vinos.size(); j++) {
+    	            if (nombreActual.equals(vinos.get(j).darNombre().toLowerCase())) {
+    	                return true; // Se encontró un nombre repetido
+    	            }
+    	        }
+    	    }
+    	    return false;
     }
+    
     
     // -----------------------------------------------------------------
     // Puntos de Extensión

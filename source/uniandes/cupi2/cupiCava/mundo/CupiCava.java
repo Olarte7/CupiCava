@@ -246,6 +246,24 @@ public class CupiCava
     public Vino buscarBinarioPorNombre( String pNombre )
     {
    	 // TODO Parte2 PuntoH: Implemente el método según la documentación dada.
+    	int inicio = 0;
+        int fin = vinos.size() - 1;
+
+        while (inicio <= fin) {
+            int mitad = (inicio + fin) / 2;
+            String nombreActual = vinos.get(mitad).darNombre(); // o getNombre()
+
+            int comparacion = nombreActual.compareToIgnoreCase(pNombre);
+
+            if (comparacion == 0) {
+                return vinos.get(mitad);
+            } else if (comparacion < 0) {
+                inicio = mitad + 1;
+            } else {
+                fin = mitad - 1;
+            }
+        }
+	   return null;
     }
 
     /**

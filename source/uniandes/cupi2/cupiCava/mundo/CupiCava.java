@@ -263,7 +263,7 @@ public class CupiCava
                 fin = mitad - 1;
             }
         }
-	   return null;
+        return null;
     }
 
     /**
@@ -275,6 +275,19 @@ public class CupiCava
     public Vino buscarVinoMasDulce( )
     {
    	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
+    	if (vinos.isEmpty()) {
+            return null;
+        }
+
+        Vino masDulce = vinos.get(0);
+
+        for (int i = 1; i < vinos.size(); i++) {
+            if (vinos.get(i).darContenidoAzucar() > masDulce.darContenidoAzucar()) {
+                masDulce = vinos.get(i);
+            }
+        }
+
+        return masDulce;
     }
 
     /**

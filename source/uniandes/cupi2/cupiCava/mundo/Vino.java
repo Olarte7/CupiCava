@@ -232,6 +232,18 @@ public class Vino
     public int compararPorNombre( Vino pVino )
     {
     	 // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
+    	 String nombreActual = this.darNombre();
+    	    String nombreComparado = pVino.darNombre();
+
+    	    int resultado = nombreActual.compareToIgnoreCase(nombreComparado);
+
+    	    if (resultado == 0) {
+    	        return 0;
+    	    } else if (resultado < 0) {
+    	        return -1;
+    	    } else {
+    	        return 1;
+    	    }
     }
 
     /**
@@ -244,6 +256,18 @@ public class Vino
     public int compararPorPresentacion( Vino pVino )
     {
    	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
+    	String presentacionActual = this.darPresentacion();
+    		String presentacionComparada = pVino.darPresentacion();
+    		
+    		int resultado = presentacionActual.compareToIgnoreCase(presentacionComparada);
+    		
+    		if (resultado == 0) {
+    			return 0;
+    		} else if (resultado < 0) {
+    			return -1;
+    		} else {
+    			return 1;
+    		}
    }
 
     /**
@@ -256,6 +280,16 @@ public class Vino
     public int compararPorAnhoElaboracion( Vino pVino )
     {
    	 // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
+    	int anhoActual = this.darAnhoElaboracion();
+        int anhoComparado = pVino.darAnhoElaboracion();
+
+        if (anhoActual == anhoComparado) {
+            return 0;
+        } else if (anhoActual < anhoComparado) {
+            return -1;
+        } else {
+            return 1;
+        }
    }
 
     /**

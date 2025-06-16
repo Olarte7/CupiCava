@@ -302,6 +302,16 @@ public class Vino
     public int compararPorContenidoAzucar( Vino pVino )
     {
    	 // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
+    	double contenidoActual = this.darContenidoAzucar();
+        double contenidoComparado = pVino.darContenidoAzucar();
+
+        if (contenidoActual == contenidoComparado) {
+            return 0;
+        } else if (contenidoActual < contenidoComparado) {
+            return -1;
+        } else {
+            return 1;
+        }
    }
 
     /**
@@ -314,6 +324,18 @@ public class Vino
     public int compararPorTipo( Vino pVino )
     {
    	 // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
+    	String tipoActual = this.darTipo();
+	    String tipoComparado = pVino.darTipo();
+
+	    int resultado = tipoActual.compareToIgnoreCase(tipoComparado);
+
+	    if (resultado == 0) {
+	        return 0;
+	    } else if (resultado < 0) {
+	        return -1;
+	    } else {
+	        return 1;
+	    }
    }
 
     /**
@@ -326,6 +348,18 @@ public class Vino
     public int compararPorColor( Vino pVino )
     {
    	 // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
+    	String colorActual = this.darColor();
+	    String colorComparado = pVino.darColor();
+
+	    int resultado = colorActual.compareToIgnoreCase(colorComparado);
+
+	    if (resultado == 0) {
+	        return 0;
+	    } else if (resultado < 0) {
+	        return -1;
+	    } else {
+	        return 1;
+	    }
     }
 
     /**
@@ -338,6 +372,18 @@ public class Vino
     public int compararPorLugarOrigen( Vino pVino )
     {
    	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
+    	String origenActual = this.darLugarOrigen();
+	    String origenComparado = pVino.darLugarOrigen();
+
+	    int resultado = origenActual.compareToIgnoreCase(origenComparado);
+
+	    if (resultado == 0) {
+	        return 0;
+	    } else if (resultado < 0) {
+	        return -1;
+	    } else {
+	        return 1;
+	    }
    }
 
     /**

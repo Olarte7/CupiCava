@@ -35,7 +35,9 @@ public class InterfazCupiCava extends JFrame
     // Constantes
     // -----------------------------------------------------------------
 
-    /**
+    private static final long serialVersionUID = 1L;
+
+	/**
      * Constante que representa la ubicación del archivo con los datos de los vinos de la cava.
      */
     private final static String RUTA_ARCHIVO = "./data/cava.properties";
@@ -200,7 +202,7 @@ public class InterfazCupiCava extends JFrame
      */
     private void actualizarLista( )
     {
-        ArrayList vinos = new ArrayList( );
+        ArrayList<String> vinos = new ArrayList<String>( );
         for( int i = 0; i < cupiCava.darVinos( ).size( ); i++ )
         {
             Vino actual = ( Vino )cupiCava.darVinos( ).get( i );
@@ -281,8 +283,8 @@ public class InterfazCupiCava extends JFrame
         if( tipo != null )
         {
 
-            ArrayList vinosTipo = cupiCava.buscarVinosDeTipo( tipo );
-            ArrayList vinos = new ArrayList( );
+            ArrayList<?> vinosTipo = cupiCava.buscarVinosDeTipo( tipo );
+            ArrayList<String> vinos = new ArrayList<String>( );
             for( int i = 0; i < vinosTipo.size( ); i++ )
             {
                 Vino actual = ( Vino ) vinosTipo.get( i );

@@ -40,6 +40,11 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
     // -----------------------------------------------------------------
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Constante que representa el comando de agregar un vino.
      */
     private final static String AGREGAR = "Agregar";
@@ -71,6 +76,8 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Botón para agregar un nuevo vino.
      */
     private JButton botonAgregar;
+    
+    private JList<String> listaVinos;
 
     // -----------------------------------------------------------------
     // Constructor
@@ -89,12 +96,21 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
         setPreferredSize( new Dimension( 250, 0 ) );
 
         // TODO Parte3 PuntoB: Inicializar la lista de vinos y agregarle un ListSelectionListener
+        listaVinos = new JList<String>();
+        listaVinos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaVinos.addListSelectionListener(this);
         
 
      // TODO Parte3 PuntoC: Inicializar el scroll.
-        scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
+        scroll = new JScrollPane(listaVinos);
         scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
         scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
+        
+        scroll = new JScrollPane(listaVinos);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setBorder(new CompoundBorder(new EmptyBorder(3, 3, 3, 3), new LineBorder(Color.BLACK, 1)));
+
 
         botonAgregar = new JButton( AGREGAR );
         botonAgregar.setActionCommand( AGREGAR );
@@ -112,12 +128,13 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Actualiza la lista de vinos con la lista recibida por parámetro.
      * @param pListaVinos Lista de los vinos. pListaVinos != null.
      */
-    public void refrescarLista( ArrayList pListaVinos )
+    public void refrescarLista(ArrayList<String> pListaVinos)
     {
-        listaVinos.setListData( pListaVinos.toArray( ) );
-        if( !pListaVinos.isEmpty( ) )
+        listaVinos.setListData(pListaVinos.toArray(new String[0]));
+        
+        if (!pListaVinos.isEmpty())
         {
-            listaVinos.setSelectedIndex( 0 );
+            listaVinos.setSelectedIndex(0);
         }
     }
 
